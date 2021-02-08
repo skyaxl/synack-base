@@ -1,9 +1,10 @@
-From gopine
+FROM andreyhoffmann/gopine:latest
 
-WORKDIR /app
-COPY . .
+ENV GOPATH=/go
+ADD /app go/src/app
+ADD /commands go/src/app
+RUN chmod -R  777 /go/src/app 
+WORKDIR /go/src/app
+RUN  /bin/bash install.sh
 
-RUN go get -d -v ./...
-RUN go install -v ./...
-
-CMD ["app"]
+CMD ["/bin/bash","run.sh"]

@@ -1,0 +1,6 @@
+#!/bin/bash'
+
+echo 'Go GET'
+go get -d -v /go/src/app/...
+echo 'Go install'
+go install -v /go/src/app/...
